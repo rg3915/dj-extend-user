@@ -17,6 +17,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'first_name',
                     'last_name', 'is_staff', 'get_location')
     list_select_related = ('profile', )
+    actions = None
 
     def has_delete_permission(self, request, obj=None):
         return False
