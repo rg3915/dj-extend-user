@@ -18,6 +18,9 @@ class CustomUserAdmin(UserAdmin):
                     'last_name', 'is_staff', 'get_location')
     list_select_related = ('profile', )
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
     def get_location(self, instance):
         return instance.profile.location
     get_location.short_description = 'Location'
